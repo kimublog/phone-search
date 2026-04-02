@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>電話番号検索</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📞</text></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>電話番号検索</h1>
+      <p class="subtitle">知らない番号をすぐに調べる</p>
+    </header>
+
+    <main>
+      <form id="searchForm" class="search-box">
+        <input
+          type="tel"
+          id="phoneInput"
+          placeholder="例: 03-1234-5678"
+          autocomplete="off"
+          inputmode="tel"
+        >
+        <button type="submit" id="searchBtn">検索</button>
+      </form>
+
+      <div id="loading" class="loading hidden">
+        <div class="spinner"></div>
+        <p>検索中...</p>
+      </div>
+
+      <div id="error" class="error hidden"></div>
+
+      <div id="result" class="result-card hidden">
+        <div class="result-header">
+          <span id="dangerBadge" class="badge"></span>
+          <h2 id="resultName">-</h2>
+        </div>
+        <dl class="result-details">
+          <dt>電話番号</dt>
+          <dd id="resultNumber">-</dd>
+          <dt>業種</dt>
+          <dd id="resultCategory">-</dd>
+          <dt>危険度スコア</dt>
+          <dd id="resultScore">-</dd>
+          <dt>報告数</dt>
+          <dd id="resultReports">-</dd>
+        </dl>
+        <div id="reviewsSection" class="reviews-section hidden">
+          <h3>口コミ</h3>
+          <ul id="reviewsList"></ul>
+        </div>
+        <a id="sourceLink" href="#" target="_blank" rel="noopener" class="source-link">
+          電話帳ナビで詳細を見る
+        </a>
+      </div>
+
+      <div id="historySection" class="history-section hidden">
+        <h3>検索履歴</h3>
+        <ul id="historyList"></ul>
+      </div>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
